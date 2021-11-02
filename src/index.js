@@ -110,7 +110,9 @@ const WebhookDeploy = (props) => {
                       onClick={() => postSingleBuild(build.name, build.buildHook)}
                       className={styles.button}
                     >
-                      <img src={flags[build.name.toLowerCase()]} />
+                      {flags[build.name.toLowerCase()] && (
+                        <img src={flags[build.name.toLowerCase()]} />
+                      )}
                       {building === build.name || building === 'ALL' ? (
                         <span style={{color: 'green'}}> Deploying</span>
                       ) : (
@@ -169,7 +171,9 @@ const WebhookDeploy = (props) => {
                       onClick={() => postSinglePreview(preview.name, preview.previewHook)}
                       className={styles.button}
                     >
-                      <img src={flags[preview.name.toLowerCase()]} />
+                      {flags[preview.name.toLowerCase()] && (
+                        <img src={flags[preview.name.toLowerCase()]} />
+                      )}
                       {buildingPreview === preview.name || buildingPreview === 'ALL' ? (
                         <span style={{color: 'green'}}> Starting</span>
                       ) : (
@@ -216,8 +220,20 @@ const WebhookDeploy = (props) => {
 }
 
 WebhookDeploy.propTypes = {
-  builds: PropTypes.arrayOf({}),
-  previews: PropTypes.arrayOf({}),
+  builds: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      buildHook: PropTypes.string,
+      buildUrl: PropTypes.string,
+    })
+  ),
+  previews: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      previewHook: PropTypes.string,
+      previewUrl: PropTypes.string,
+    })
+  ),
   overrideStrings: PropTypes.shape({
     title: PropTypes.string,
     previewTitle: PropTypes.string,
