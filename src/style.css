@@ -1,0 +1,127 @@
+@import 'part:@sanity/base/theme/variables-style';
+
+.container {
+  composes: container from 'part:@sanity/dashboard/widget-styles';
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.header {
+  composes: header from 'part:@sanity/dashboard/widget-styles';
+}
+
+.title {
+  composes: title from 'part:@sanity/dashboard/widget-styles';
+}
+
+.content {
+  position: relative;
+  padding: var(--large-padding);
+  border-top: 1px solid var(--hairline-color);
+  min-height: 66px;
+  display: flex;
+}
+
+.deployAllContainer {
+  width: 250px;
+  border-left: 1px solid rgba(131, 124, 116, 0.25);
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+  padding-left: 25px;
+  flex-shrink: 0;
+}
+
+.builds,
+.previews {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 200px;
+}
+
+.footer {
+  composes: footer from 'part:@sanity/dashboard/widget-styles';
+  padding: var(--small-padding) var(--small-padding);
+  width: 100%;
+}
+
+.link {
+  color: black;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.previewButton {
+  padding: var(--medium-padding) var(--small-padding) var(--small-padding);
+  cursor: pointer;
+  min-width: 175px;
+}
+
+.button {
+  padding: var(--medium-padding) var(--small-padding) var(--small-padding);
+  cursor: pointer;
+  min-width: 170px;
+}
+
+.button span {
+  display: flex;
+  align-items: center;
+}
+
+.button img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.allButton {
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.allButton > span {
+  padding: 12px;
+}
+
+@media screen and (max-width: 767px) {
+  .content {
+    padding: var(--small-padding);
+    flex-wrap: wrap;
+  }
+
+  .section {
+    width: 50%;
+  }
+
+  .deployAllContainer {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .button,
+  .allButton {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .allButton {
+    padding: var(--small-padding);
+    margin-top: 10px;
+    margin-bottom: 3px;
+  }
+
+  .builds,
+  .previews {
+    justify-content: space-between;
+    order: 2;
+  }
+}

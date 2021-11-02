@@ -1,0 +1,58 @@
+{
+  "name": "sanity-plugin-dashboard-widget-webhook-deploy",
+  "version": "1.0.0",
+  "description": "Sanity Studio Dashboard Widget for triggering webhook deploys.",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "sanipack build",
+    "watch": "sanipack build --watch",
+    "prepublishOnly": "sanipack build && sanipack verify"
+  },
+  "repository": "https://github.com/brinkcommerce/sanity-plugin-dashboard-widget-webhook-deploy.git",
+  "keywords": [
+    "sanity",
+    "sanity-plugin",
+    "dashboard",
+    "widget",
+    "deploy",
+    "webhook"
+  ],
+  "homepage": "https://github.com/brinkcommerce/sanity-plugin-dashboard-widget-webhook-deploy.git",
+  "bugs": {
+    "url": "https://github.com/brinkcommerce/sanity-plugin-dashboard-widget-webhook-deploy.git"
+  },
+  "author": "Simon Lager <simon.lager@brinkcommerce.com>",
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "sanipack": "^2.1.0",
+    "prettier": "^2.4.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-sanity": "^5.1.0",
+    "eslint-plugin-react": "^7.26.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parser": "sanipack/babel/eslint-parser",
+    "extends": [
+      "sanity",
+      "sanity/react",
+      "prettier"
+    ],
+    "ignorePatterns": [
+      "lib/**/"
+    ]
+  }
+}
